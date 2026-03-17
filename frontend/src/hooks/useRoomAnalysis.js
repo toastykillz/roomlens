@@ -34,7 +34,7 @@ export function useRoomAnalysis() {
       formData.append("windows", windows);
       formData.append("roomType", roomType);
 
-      const res = await fetch("/api/analyze", {
+      const res = await fetch("https://roomlens-production.up.railway.app/api/analyze", {
         method: "POST",
         body: formData,
       });

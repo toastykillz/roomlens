@@ -11,7 +11,10 @@ const app = express();
 const upload = multer({ storage: multer.memoryStorage(), limits: { fileSize: 10 * 1024 * 1024 } });
 const anthropic = new Anthropic({ apiKey: process.env.ANTHROPIC_API_KEY });
 
-app.use(cors());
+app.use(cors({
+  origin: ["https://roomlens.vercel.app", "http://localhost:5173"],
+  methods: ["GET", "POST"],
+}));
 app.use(express.json());
 
 // Health check
